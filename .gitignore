@@ -1,4 +1,6 @@
 venv/
 
 *.bmp
+*.png
+
 *.pyc
