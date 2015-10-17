@@ -23,6 +23,18 @@ class Rect:
 
 		return x1, y1, x2, y2
 
+	def _vertical_split(self, width_1, width_2):
+		""" Performs a vertical split of the rect with the supplied width values. """
+
+		return Rect(self.x, self.y, width_1, self.height), \
+			Rect(self.x + width_1, self.y, width_2, self.height)
+
+	def _horizontal_split(self, height_1, height_2):
+		""" Performs a horizontal split of the rect with the supplied height values. """
+
+		return Rect(self.x, self.y, self.width, height_1), \
+			Rect(self.x, self.y + height_1, self.width, height_2)
+
 	def split(self):
 		horizontal = random.random() > 0.5
 
