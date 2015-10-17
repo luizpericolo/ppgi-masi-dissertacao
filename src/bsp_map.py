@@ -36,17 +36,21 @@ class Rect:
 			Rect(self.x, self.y + height_1, self.width, height_2)
 
 	def split(self):
+		""" Splits a rect in two either vertically or horizontally """
+
 		horizontal = random.random() > 0.5
 
 		if horizontal:
 			top_height = random.randrange(10, self.height)
 			bottom_height = self.height - top_height
 
-			return Rect(self.x, self.y, self.width, top_height), Rect(self.x, top_height, self.width, bottom_height)
+			return self._horizontal_split(height_1=top_height, height_2=bottom_height)
 
 		else:
 			left_width = random.randrange(10, self.width)
 			right_width = self.width - left_width
+
+			return self._vertical_split(width_1=left_width, width_2=right_width)
 
 	def split_half(self):
 		""" Splits a rect in two halves of equal area, either vertically or horizontally """
