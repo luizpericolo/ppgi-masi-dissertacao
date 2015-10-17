@@ -107,7 +107,12 @@ class BSPTree:
 			l_child = TreeNode(label=self._get_next_label())
 			r_child = TreeNode(label=self._get_next_label())
 
-			l_child.rect, r_child.rect = node.rect.split()
+			if random.random() > 0.5:
+				split_func = node.rect.split_half
+			else:
+				split_func = node.rect.split
+
+			l_child.rect, r_child.rect = split_func()
 
 			self.nodes.append(l_child)
 			self.nodes.append(r_child)
