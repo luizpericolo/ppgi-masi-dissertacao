@@ -10,8 +10,10 @@ class Rect:
 		self.height = height
 
 	def _switch_coordinates(self):
-		# Switching from a x, y, width, height parametrization to a x1, x2, y1, y2 parametrization for faster testing purposes
-		# x1, y1 is the left-topmost point of the rect, whereas x2, y2 is the right-bottommost point of the rect.
+		"""
+			Switches from a x, y, width, height parametrization to a x1, x2, y1, y2 parametrization.
+			x1, y1 is the left-topmost point of the rect, whereas x2, y2 is the right-bottommost point of the rect.
+		"""
 
 		x1 = self.x
 		y1 = self.y
