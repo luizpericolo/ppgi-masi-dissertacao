@@ -132,11 +132,13 @@ class BSPTree:
 
 			l_child.rect, r_child.rect = split_func()
 
-			self.nodes.append(l_child)
-			self.nodes.append(r_child)
+			if l_child.is_suitable():
+				self.nodes.append(l_child)
+				self.leaves.append(l_child)
 
-			self.leaves.append(l_child)
-			self.leaves.append(r_child)
+			if r_child.is_suitable():
+				self.nodes.append(r_child)
+				self.leaves.append(r_child)
 
 	def _get_next_node(self):
 		assert self.idx < len(self.nodes), u"Trying to access invalid position {}".format(self.idx)
