@@ -114,7 +114,7 @@ class BSPTree:
 			self.nodes.append(node)
 
 	def _stop_condition_met(self):
-		return len(self.nodes) >= self.MAX_NODES
+		return len(self.nodes) >= self.MAX_NODES or len(self.nodes) == 0
 
 	def _do_split(self):
 		while not self._stop_condition_met():
