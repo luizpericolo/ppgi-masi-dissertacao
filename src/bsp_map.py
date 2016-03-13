@@ -166,6 +166,9 @@ def print_rects(rects, name="test.bmp"):
 
 	im.save(name)
 
+import time
+
+start = time.time()
 t = BSPTree()
 t._do_split()
 
@@ -177,3 +180,6 @@ for leaf in t.get_leaves():
 	rects.append(leaf.rect)
 
 print_rects(rects, "bsp_test.bmp")
+end = time.time()
+
+print "{0:.4f} seconds".format(end - start)
