@@ -84,8 +84,14 @@ class Rect:
 
 class TreeNode:
 	def __init__(self, label=""):
+
 		self.rect = Rect(0, 0, 100, 100)
 		self.label = label
+
+	def is_suitable(self):
+		""" Testing if this instance is suitable. Wraps is_suitable() from Rect """
+
+		return self.rect.is_suitable()
 
 class BSPTree:
 
