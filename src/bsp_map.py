@@ -95,7 +95,7 @@ class TreeNode:
 
 class BSPTree:
 
-	def __init__(self, n_max_nodes=20):
+	def __init__(self, n_max_nodes=32):
 		self.MAX_NODES = n_max_nodes
 		self.root = TreeNode(label="A")
 		self.nodes = [self.root]
