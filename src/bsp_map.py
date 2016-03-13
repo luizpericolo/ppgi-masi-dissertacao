@@ -3,6 +3,10 @@ import random
 from PIL import Image, ImageDraw
 
 class Rect:
+
+	MIN_WIDTH = 10
+	MIN_HEIGHT = 10
+
 	def __init__(self, x, y, width, height):
 		self.x = x
 		self.y = y
@@ -22,6 +26,14 @@ class Rect:
 		y2 = self.y + self.height
 
 		return x1, y1, x2, y2
+
+	def is_suitable(self):
+		""" 
+			Tests if this instance is suitable:
+				* if both width and height are greater than or equal to their min values.
+		"""
+
+		return self.width >= self.MIN_WIDTH and self.height >= self.MIN_HEIGHT
 
 	def _vertical_split(self, width_1, width_2):
 		""" Performs a vertical split of the rect with the supplied width values. """
