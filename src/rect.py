@@ -3,10 +3,12 @@
 import random
 from PIL import Image, ImageDraw
 
+SIZE = (400, 400)
+
 
 class Rect:
-    MIN_WIDTH = 10
-    MIN_HEIGHT = 10
+    MIN_WIDTH = SIZE[0] / 10
+    MIN_HEIGHT = SIZE[1] / 10
 
     def __init__(self, x, y, width, height):
             self.x = x
@@ -84,8 +86,7 @@ class Rect:
 
 
 def print_rects(rects, name="test.bmp"):
-    size = (100, 100)
-    im = Image.new('RGB', size)
+    im = Image.new('RGB', SIZE)
     draw = ImageDraw.Draw(im)
 
     fill = 'blue'
