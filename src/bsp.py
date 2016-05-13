@@ -77,3 +77,22 @@ class TreeNode:
         """ Testing if this instance is suitable. Wraps is_suitable() from Rect """
 
         return self.rect.is_suitable()
+
+    def __str__(self):
+        return u"<{}> {}".format(self.label, self.rect)
+
+
+def print_bsp(tree, name="bsp_tree_test.bmp"):
+    font = ImageFont.truetype("Ubuntu-R.ttf", 14)
+    im = Image.new('RGB', SIZE)
+    draw = ImageDraw.Draw(im)
+
+    fill = 'blue'
+    outline = 'black'
+
+    for node in tree.leaves:
+        coords = list(node.rect._switch_coordinates())
+        draw.rectangle(coords, fill, outline)
+        draw.text(xy=node.rect._get_center(), text=node.label.upper(), fill=(0, 0, 0), font=font)
+
+    im.save(name)
