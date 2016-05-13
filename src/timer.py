@@ -8,7 +8,7 @@ def timeit(fn):
         result = fn(*args, **kwargs)
         te = time.time()
 
-        print "{}({}, {}) - {:2.4f} seconds".format(fn.__name__, args, kwargs, te - ts)
-        return result
+        print("{}({}, {}) - {:2.4f} seconds".format(fn.__name__, args, kwargs, te - ts))
+        return(result)
 
     return timed

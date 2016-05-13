@@ -1,12 +1,13 @@
 import random
 from PIL import Image, ImageDraw
 
+
 class Room:
 	"""
 	Parametrized by x, y, width, height where:
-		* x, y is the left-topmost point of the room.
-		* width is the width of the room.
-		* height is the height of the room.
+	* x, y is the left-topmost point of the room.
+	* width is the width of the room.
+	* height is the height of the room.
 	"""
 
 	def __init__(self, r_id, x, y, width, height):
@@ -17,7 +18,7 @@ class Room:
 		self.height = height
 
 	def print_room(self):
-		print u"<id: {}, x: {}, y: {}, width: {}, height: {}>".format(self.id, self.x, self.y, self.width, self.height)
+		print(u"<id: {}, x: {}, y: {}, width: {}, height: {}>".format(self.id, self.x, self.y, self.width, self.height))
 
 	def intersect(self, room):
 		""" Method that checks wether two rooms intersect or not. """
@@ -27,9 +28,8 @@ class Room:
 
 		if (x1 < r_x2 and x2 > r_x1 and y1 < r_y2 and y2 > r_y1):
 			return True
-		else:
-			return False
 
+		return False
 
 	def _switch_coordinates(self):
 		# Switching from a x, y, width, height parametrization to a x1, x2, y1, y2 parametrization for faster testing purposes
@@ -38,7 +38,7 @@ class Room:
 		x1 = self.x
 		y1 = self.y
 
-		x2 = self.x + self.width 
+		x2 = self.x + self.width
 		y2 = self.y + self.height
 
 		return x1, y1, x2, y2
@@ -74,7 +74,6 @@ class Map:
 		for room in self.rooms:
 			room.print_room()
 
-
 	def import_from_graph(self, graph):
 		for node in graph.nodes:
 			w, h = self.get_random_room_dimensions()
@@ -83,10 +82,9 @@ class Map:
 			# Check add_room.
 			self.add_room(None, None, w, h)
 
-
 	def get_random_room_dimensions(self):
 		""" Returns a tuple (w, h) with random values. """
-		
+
 		return random.randrange(self.max_width/2, self.max_width), random.randrange(self.max_height/2, self.max_height)
 
 	def print_map(self):
