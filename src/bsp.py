@@ -1,14 +1,15 @@
 # coding: utf-8
 import random
-from rect import Rect
+from rect import Rect, SIZE
+from PIL import Image, ImageDraw, ImageFont
 
 
 class BSPTree:
     def __init__(self, n_max_nodes=32):
         self.MAX_NODES = n_max_nodes
         self.root = TreeNode(label="A")
-        self.nodes = [self.root]
-        self.leaves = [self.root]
+        self._nodes = [self.root]
+        self._leaves = [self.root]
         self.idx = 0
         self.last_label = "A"
 
@@ -28,7 +29,7 @@ class BSPTree:
     def _do_split(self):
         while not self._stop_condition_met():
             node = self._get_next_node()
-            print "Processing node {}.".format(node.label)
+            print("Processing node {}.".format(node))
             self.leaves.remove(node)
 
             l_child = TreeNode(label=self._get_next_label())
@@ -42,10 +43,12 @@ class BSPTree:
             l_child.rect, r_child.rect = split_func()
 
             if l_child.is_suitable():
+                print("Criado {}".format(l_child))
                 self.nodes.append(l_child)
                 self.leaves.append(l_child)
 
             if r_child.is_suitable():
+                print("Criado {}".format(r_child))
                 self.nodes.append(r_child)
                 self.leaves.append(r_child)
 
@@ -57,20 +60,20 @@ class BSPTree:
 
     @property
     def leaves(self):
-        return self.leaves
+        return self._leaves
 
     @property
     def nodes(self):
-        return self.nodes
+        return self._nodes
 
     @property
     def rects(self):
-        return [leaf.rect for leaf in self.leaves]
+        return [leaf.rect for leaf in self._leaves]
 
 
 class TreeNode:
     def __init__(self, label=""):
-        self.rect = Rect(0, 0, 100, 100)
+        self.rect = Rect(0, 0, *SIZE)
         self.label = label
 
     def is_suitable(self):
