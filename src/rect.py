@@ -16,6 +16,13 @@ class Rect:
             self.width = width
             self.height = height
 
+    def _get_center(self):
+        """
+        Returns the center of a rect
+        """
+
+        return self.x + self.width / 2, self.y + self.height / 2
+
     def _switch_coordinates(self):
         """
         Switches from a x, y, width, height parametrization to a x1, x2, y1, y2 parametrization.
