@@ -1,7 +1,6 @@
 # coding: utf-8
 from timer import timeit
-from bsp import BSPTree
-from rect import print_rects
+from bsp import BSPTree, print_bsp
 
 
 @timeit
@@ -10,12 +9,14 @@ def create_map():
     t._do_split()
 
     for leaf in t.leaves:
-        print leaf.label
-        print leaf.rect
+        print(leaf.label)
+        print(leaf.rect)
 
-    rects = t.rects
+    print_bsp(t, "bsp_tree_test.bmp")
 
-    print_rects(rects, "bsp_test.bmp")
+    print("Leaves: ")
+    for leaf in t.leaves:
+        print(leaf)
 
 if __name__ == "__main__":
     create_map()
