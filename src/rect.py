@@ -42,7 +42,7 @@ class Rect:
         * if both width and height are greater than or equal to their min values.
         """
 
-        return self.width >= self.MIN_WIDTH and self.height >= self.MIN_HEIGHT
+        return self.width > self.MIN_WIDTH and self.height > self.MIN_HEIGHT
 
     def _vertical_split(self, width_1, width_2):
         """ Performs a vertical split of the rect with the supplied width values. """
@@ -60,15 +60,13 @@ class Rect:
         horizontal = random.random() > 0.5
 
         if horizontal:
-            # XXX: Está dando empty range as vezes
-            top_height = random.randrange(10, self.height)
+            top_height = random.randrange(self.MIN_WIDTH, int(self.height))
             bottom_height = self.height - top_height
 
             return self._horizontal_split(height_1=top_height, height_2=bottom_height)
 
         else:
-            # XXX: Está dando empty range as vezes
-            left_width = random.randrange(10, self.width)
+            left_width = random.randrange(self.MIN_WIDTH, int(self.width))
             right_width = self.width - left_width
 
             return self._vertical_split(width_1=left_width, width_2=right_width)
