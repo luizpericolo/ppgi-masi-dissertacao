@@ -43,6 +43,10 @@ class Room:
 
 		return x1, y1, x2, y2
 
+	@property
+	def center(self):
+		return (self.x + self.width / 2, self.y + self.height / 2)
+
 
 class Map:
 	def __init__(self, max_width=50, max_height=50):
