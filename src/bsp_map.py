@@ -1,6 +1,6 @@
 # coding: utf-8
-from timer import timeit
 from bsp import BSPTree, print_bsp
+from timer import timeit
 
 
 @timeit

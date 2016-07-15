@@ -1,10 +1,13 @@
 # coding: utf-8
 import random
-from rect import Rect, SIZE
+
 from PIL import Image, ImageDraw, ImageFont
+
+from rect import SIZE, Rect
 
 
 class BSPTree:
+
     def __init__(self, n_max_nodes=32):
         self.MAX_NODES = n_max_nodes
         self.root = TreeNode(label="A")
@@ -14,7 +17,7 @@ class BSPTree:
         self.last_label = "A"
 
     def _get_next_label(self):
-        label = chr(ord(self.last_label)+1)
+        label = chr(ord(self.last_label) + 1)
         self.last_label = label
         return label
 
@@ -72,6 +75,7 @@ class BSPTree:
 
 
 class TreeNode:
+
     def __init__(self, label=""):
         self.rect = Rect(0, 0, *SIZE)
         self.label = label

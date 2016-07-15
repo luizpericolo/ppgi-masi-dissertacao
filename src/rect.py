@@ -1,6 +1,7 @@
 # coding: utf-8
 
 import random
+
 from PIL import Image, ImageDraw
 
 SIZE = (400, 400)
@@ -11,10 +12,10 @@ class Rect:
     MIN_HEIGHT = SIZE[1] / 10
 
     def __init__(self, x, y, width, height):
-            self.x = x
-            self.y = y
-            self.width = width
-            self.height = height
+        self.x = x
+        self.y = y
+        self.width = width
+        self.height = height
 
     def _get_center(self):
         """

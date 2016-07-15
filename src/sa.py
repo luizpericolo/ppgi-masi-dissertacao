@@ -1,5 +1,6 @@
 import math
 from random import random, uniform
+
 from sa_functions import mapping
 
 
